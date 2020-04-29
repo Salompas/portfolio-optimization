@@ -12,5 +12,5 @@ if __name__ == "__main__":
             stocks[s] = pickle.load(f)
 
 
-print(stocks)
-print(Portfolio(*stocks.values()))
+    print(stocks)
+    print(Portfolio(*stocks.values()))
