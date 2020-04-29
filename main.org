@@ -4,11 +4,14 @@
 :EXPORT_TITLE: Data Incubator Project
 :END:
 ** Introduction
-The field of finance has developed several methods for optimizing investment portfolios and understanding their risks. However, there is no easy-to-use web interface that makes use of this theory and is widely available to common investors. The purpose of this project is to develop easy-to-use tools based on decades of financial research. These tools should allow anyone to improvie their financial returns are risk-return tradeoffs.
+The field of finance has developed several methods for optimizing investment portfolios and understanding their risks. However, there is no easy-to-use web interface that makes use of this theory and is widely available to common investors. The purpose of this project is to develop easy-to-use tools based on decades of financial research.
 
-The first objective is to allow an user to input a portfolio, and get back an optimized version of the portfolio and backtest results. The backtest results should show historical returns, risk and the tradeoff between returns and risks.
+Individual investors often have portfolios with a few stocks. This is not optimal, since these investors will incur in unnecessarily high risks to obtain small returns. By diversifying investments, an investor can easily decrease the amount of risk they are subject to, and achieve better and more consistent risk-reward trade-offs.
 
-This notebook analyses recent high-frequency financial data and displays the benefits of portfolio optimization.
+The goal of this project is to bring the benefits of financial theory to common investors. And, in the long-run, my vision for this project is to create a modern web-interface that allows individuals to take control of their investments in the stock market and understand the types of risks they are facing.
+
+This notebook implements a portfolio optimization technique based on high-frequency data and modern financial econometrics theory. It the analyzes the benefits it can bring to investors that hold only few stocks in their portfolios.
+
 ** Analysis
 #+BEGIN_SRC jupyter-python :session py :results output :async yes
 import os
