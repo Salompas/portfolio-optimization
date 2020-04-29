@@ -4,3 +4,5 @@ __pycache__
 .DS_Store
 symbols.py
 .ob-jupyter
+.ipynb_checkpoints/
+main_export.org

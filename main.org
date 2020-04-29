@@ -1,10 +1,15 @@
-* Introduction
+* Data Incubator Project
+:PROPERTIES:
+:EXPORT_FILE_NAME: main_export
+:EXPORT_TITLE: Data Incubator Project
+:END:
+** Introduction
 The field of finance has developed several methods for optimizing investment portfolios and understanding their risks. However, there is no easy-to-use web interface that makes use of this theory and is widely available to common investors. The purpose of this project is to develop easy-to-use tools based on decades of financial research. These tools should allow anyone to improvie their financial returns are risk-return tradeoffs.
 
 The first objective is to allow an user to input a portfolio, and get back an optimized version of the portfolio and backtest results. The backtest results should show historical returns, risk and the tradeoff between returns and risks.
 
 This notebook analyses recent high-frequency financial data and displays the benefits of portfolio optimization.
-* Analysis
+** Analysis
 #+BEGIN_SRC jupyter-python :session py :results output :async yes
 import os
 import pickle
@@ -31,7 +36,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Risk over the past 3 weeks
-start, stop = p0.intraday_ret.index[[0, -1]].date
+start, stop = stocks["AAPL"].intraday_ret.index[[0, -1]].date
 risk = {s: Portfolio(stocks[s]).risk(start, stop) for s in stocks}
 risk["Portfolio"] = Portfolio(*stocks.values()).risk(start, stop)
 risk["Optimized"] = Portfolio(*stocks.values()).optimize().risk(start, stop)
@@ -95,7 +100,7 @@ Now, consider the portfolios represented by the green and red bars. They offer a
 
 An additional benefit to an optimized portfolio is that its return and risk will be more consistent than single stocks. The consistency is achieved by combining ups and downs of different stocks, so that the portfolio does not suffer big crashes.
 
-* Conclusion
+** Conclusion
 Individual investors often have portfolios with a few stocks. This is not optimal, since these investors will incur in unnecessarily high risks to obtain small returns. By diversifying investments, an investor can easily decrease the amount of risk they are subject to, and achieve better and more consistent risk-reward trade-offs. This project implemented a portfolio optimization technique based on high-frequency data and modern financial econometrics theory. My goal is to make this available to everyone through a modern web-interface, that allows individuals to take control of their investments in the stock market and understand the types of risks they are facing.
 
 Thanks for reading! :D
