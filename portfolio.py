@@ -36,6 +36,10 @@ class Portfolio:
         return self.intraday.dot(list(self.weights.values()))
 
     @property
+    def daily_price(self):
+        return self.daily.dot(list(self.weights.values()))
+
+    @property
     def intraday_ret(self):
         return self.intraday_price.groupby(by=self.intraday_price.index.date).apply(
             lambda df: np.log(df).diff()
@@ -61,8 +65,11 @@ class Portfolio:
             ret += self.weights[s] * self.stocks[s].return_between(start_date, end_date)
         return ret
 
-    def optimize(self, portfolio, date=None):
-        optimized = Portfolio(*self.stocks.values(), *portfolio.stocks.values())
+    def optimize(self, portfolio=None, date=None):
+        if portfolio is None:
+            optimized = self
+        else:
+            optimized = Portfolio(*self.stocks.values(), *portfolio.stocks.values())
         if date is None:
             inverse = 1 / optimized.rv.iloc[-1, :]
         else:
